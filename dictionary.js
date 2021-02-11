@@ -56,4 +56,4 @@ function Dictionary() {
   };
 }
 
-export default Dictionary;
+module.exports = Dictionary;

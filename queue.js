@@ -31,3 +31,5 @@ function Queue() {
     console.log(items);
   };
 }
+
+module.exports = Queue;
