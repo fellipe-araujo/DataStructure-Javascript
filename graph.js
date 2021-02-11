@@ -43,7 +43,7 @@ function Graph() {
     return color;
   };
 
-  this.bfs = function (v, callback) {
+  this.bfs = function (v, visit) {
     var color = initializeColor();
     var queue = new Queue();
 
@@ -63,7 +63,32 @@ function Graph() {
           queue.enqueue(w);
         }
       }
-      callback(u);
+      visit(u);
+    }
+  };
+
+  this.dfs = function (visit) {
+    var color = initializeColor();
+
+    for (var i = 0; i < vertices.length; i++) {
+      if (color[vertices[i]] === 'white') {
+        dfsVisit(vertices[i], color, visit);
+      }
+    }
+  };
+
+  var dfsVisit = function (u, color, visit) {
+    color[u] = 'blue';
+    visit(u);
+  
+    var neighbors = adjList.get(u);
+
+    for (var i = 0; i < neighbors.length; i++) {
+      var w = neighbors[i];
+
+      if (color[w] === 'white') {
+        dfsVisit(w, color, visit);
+      }
     }
   };
 }
