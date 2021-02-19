@@ -17,6 +17,10 @@ function Graph() {
     adjList.get(w).push(v);
   };
 
+  this.structureGraph = function() {
+    return adjList.getItems();
+  }
+
   // Lista de Adjacências
   this.adjacencyList = function () {
     var s = '';
@@ -116,8 +120,10 @@ graph.addEdge('B', 'E')
 graph.addEdge('B', 'F')
 graph.addEdge('E', 'I')
 
-console.log('BUSCA EM PROFUNDIDADE');
-graph.dfs(visitVertex)
+// console.log('BUSCA EM PROFUNDIDADE');
+// graph.dfs(visitVertex)
 
-console.log('\nBUSCA EM LARGURA');
-graph.bfs(vertices[0], visitVertex)
+// console.log('\nBUSCA EM LARGURA');
+// graph.bfs(vertices[0], visitVertex)
+
+console.log(graph.structureGraph());
